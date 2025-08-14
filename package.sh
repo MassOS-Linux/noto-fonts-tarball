@@ -76,15 +76,18 @@ install -t "${pkg_emoji}"/usr/share/licenses/noto-fonts-emoji -Dm644 noto-emoji/
 
 # Create tarball for Noto Fonts.
 echo "Creating tarball for Noto Fonts..."
-tar -cJf "noto-fonts-${NOTO_VERSION}.tar.xz" "noto-fonts-${NOTO_VERSION}"
+tar -cf "noto-fonts-${NOTO_VERSION}.tar" "noto-fonts-${NOTO_VERSION}"
+xz -9e --threads=$(nproc) "noto-fonts-${NOTO_VERSION}.tar"
 
 # Create tarball for Noto CJK Fonts.
 echo "Creating tarball for Noto CJK Fonts..."
-tar -cJf "noto-fonts-cjk-${NOTO_CJK_VERSION}.tar.xz" "noto-fonts-cjk-${NOTO_CJK_VERSION}"
+tar -cf "noto-fonts-cjk-${NOTO_CJK_VERSION}.tar" "noto-fonts-cjk-${NOTO_CJK_VERSION}"
+xz -9e --threads=$(nproc) "noto-fonts-cjk-${NOTO_CJK_VERSION}.tar"
 
 # Create tarball for Noto Emoji Fonts.
 echo "Creating tarball for Noto Emoji Fonts..."
-tar -cJf "noto-fonts-emoji-${NOTO_EMOJI_VERSION}.tar.xz" "noto-fonts-emoji-${NOTO_EMOJI_VERSION}"
+tar -cf "noto-fonts-emoji-${NOTO_EMOJI_VERSION}.tar" "noto-fonts-emoji-${NOTO_EMOJI_VERSION}"
+xz -9e --threads=$(nproc) "noto-fonts-emoji-${NOTO_EMOJI_VERSION}.tar"
 
 # Clean up.
 echo "Cleaning up..."
