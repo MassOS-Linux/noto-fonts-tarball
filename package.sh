@@ -14,6 +14,9 @@
 # Exit on error.
 set -e
 
+# Ensure files inside the produced tarballs have the correct permissions.
+umask 0022
+
 # Get version and commit info from config file.
 . version.conf
 pkg_noto="noto-fonts-${NOTO_VERSION}"
